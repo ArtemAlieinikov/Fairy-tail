@@ -9,31 +9,133 @@ namespace Fairy_tail.Сlasses
     class HostWriter
     {
         //Переменная которая ответственна за игровые очки, для изминения буду пользовать либо СВОЙСТВО либо СОБЫТИЕ
-        //private int progressPoints;
+        private int progressPoints;
 
+        public void ProgressGrowth(int points)
+        {
+            progressPoints += points;
+        }
+
+        //Done
         public string GetStartSpeech()
-        { return "Start speech"; }
+        {
+            string first = "\tБыла ужа вторая половина дня, Алиса, сидя за компьютером начала уставать и все чаще поглядывала на клавиатуру.";
+            string second = "Казалось что звук системного блока усилился и в комнате стало жарче. Концентрироваться становилось все сложнее и сложнее.";
+            string third = "Уставившить в очередной раз на клавиатуру, Алиса задумалась о рациональности расположении клавиш на QWERTY раскладке.";
+            string fourth = "Однако её размышления прирвали чьи-то голоса за дверью.";
+            return String.Format("{0} {1} {2} {3}", first, second, third, fourth); 
+        }
         public string GetEndSpeech()
         { return "End speech"; }
-
+        //Done
+        public string GetOpeningWordsOfTheTweedleScene()
+        {
+            string first = "\tВыйдя в коридор, Алиса увидила два брата, они о чем-то активно спорили и никто не хотел уступать оппоненту.";
+            string second = "Один из них был моложе и одет был по моде, другой был старше, и немного старомодней но так же выгядел достойно.";
+            string third = "В пылу своего спора, они даже не обратили внимания на Алису, и все так же на повышеных тонах спорили между собой.";
+            string fourth = "Присмотревшись сильнее, Алиса подметила, что скорее всего они не братья, но не заметить сходства было невозможно.";
+            return String.Format("{0} {1} {2} {3}", first, second, third, fourth); 
+        }
+        //Done
+        public string GetMiddleWordsOfTheTweedleScene()
+        {
+            string first = "\tНе долго думая, она сразу сообразила, что это два разработчика спорят между собой, отстаивая любимый язык.";
+            string second = "Алиса задумалась, а так ли важны эти споры, и почему они так гневно относятся друг к другу из за таких вещей.";
+            string third = "У неё было свой мнение по этому поводу, и она решила вмешаться в спор.";
+            string fourth = "Подойдя ближе и глубоко вдохнув она...";
+            return String.Format("{0} {1} {2} {3}", first, second, third, fourth); 
+        }
+        //Done
+        public string GetFinalgWordsOfTheTweedleScene()
+        {
+            string first = "\tНе смотря на то, что Алиса выразилась довольно громко и настойчиво.";
+            string second = "К своему удивлению она обнаружила, что на неё совсем не обратили внимания.";
+            string third = "Сообразив, что влазить в этот спор не имеет смысла, она пошла далее по коридору.";
+            string fourth = "Поправив складки на платье, ей показалось что у неё в кармане что-то лежит...";
+            return String.Format("{0} {1} {2} {3}", first, second, third, fourth); 
+        }
+        //Done
         public string GetOpeningWordsOfTheHRScene()
-        { return "HR begin"; }
-        public string GetFinalgWordsOfTheHRScene()
-        { return "HR final"; }
+        {
+            string first = "\tЗасунув руку в карман, Алиса обнаружила, что это был бумажный сверток. Развернув его она медленно прочитала.";
+            string second = "РЕ-ЗЮ-МЕ, так как оно оказалось у неё в кармане, она сразу поняла, что это её резюме.";
+            string third = "Пройдя несколько шагов по коридору утупившить в этот лист бумаги, она чуть не ударилась об какую-то высокую деревенную стену...";
+            string fourth = "Подняв голову, Алиса обнаружила, что это был крайнеееее высоки стол. И самое интересно, на краю этого стола сидело яйцо.";
+            string fifth = "Оно сидело неподвижно, и на самом краешек стола, и тут оно развернулось и начало говорить...";
+            return String.Format("{0} {1} {2} {3} {4}", first, second, third, fourth, fifth); 
+        }
+        //Done
+        public string GetMiddleWordsOfTheHRScene()
+        {
+            string first = "\tАлиса четко услышала, что ей сказали не смотря на большую высоту стола.";
+            string second = "Однако ей не было понятно, как на таком расстоянии можно передать лист бумаги.";
+            string third = "Затормошившить в сомнениях, она и не заметила, как чья-то рука выхватила бумагу из её рук.";
+            string fourth = "Подняв глаза наверх, она увидела что яйцо разверулось к ней спиной и не двигалось. Подумав что её резюме тщательно рассматривают Алиса начала ждать.";
+            string fifth = "Прошло 5 минут, 10 минут, 30 минут, 59 минут!!! Но яйцо так и не повернулось к Алисе. По окончанию 911-той минуты, Алиса не видержала и решила...";
+            return String.Format("{0} {1} {2} {3} {4}", first, second, third, fourth, fifth);
+        }
+        //Done
+        public string GetFinalgWordsOfTheHRScene(bool flarflagOfConsent)
+        {
+            string first, second, third, fourth, fifth, sixth;
+            if (flarflagOfConsent == true)
+            {
+                first = "\tАлиса, подумав, что ей все же было совсем не плохо услышать фидбек о себе.";
+                second = "Для начала она сказала, могли бы вы предоставить фидбек, но реакции не было.";
+                third = "Далее она говорила те же самые по смыслу фразы, только на повышеных тонах, когда это не подействовало.";
+                fourth = "Она насупилась и начала тарабанить кулаками и ботинками по краешку этого самого ооочень высокого стола...";
+                fifth = "Окончательно устав, она почувствовала приятный запах, который доносился из соседнего помещения.";
+                sixth = "Оставив надежды, Алиса направилась в комнату, из которой доносился приятный запах. Закрыв за собой дверь, она услышала, что что-то с ГРОМКИМ ТРЕСКОМ УПАЛО НА ПОЛ...";
+                return String.Format("{0} {1} {2} {3} {4} {5}", first, second, third, fourth, fifth, sixth); 
+            }
+            else
+            {
+                first = "\tПодумав, что нет смысла ждать далее, Алиса унюхала приятный запах доносившийся из соседнего помещения.";
+                second = "Решив, что было бы не плохо подкрепиться, она направилась в эту комнату.";
+                return String.Format("{0} {1}", first, second); 
+            }
+        }
+        //Done
+        public string GetOpeningWordsOfTheCaterpillarScene()
+        {
+            string first = "\tОказавшить в соседней комнате, запах еды усилился, как и чувство голода. Не долго думая Алиса сразу же угадала, что это запах свежей ПИЦЦЫ.";
+            string second = "Оглянувшить по сторонам она заметила круглый стол, немного напоминающий гриб, за этим столом сидела Гусеница...";
+            string third = "Приблизившить к столу, Алиса хотела познакомиться, однако Гусеница сразу же начала разговор.";
+            return String.Format("{0} {1} {2}", first, second, third);
+        }
+        //Done
+        public string GetFinalgWordsOfTheCaterpillarScene(bool pizzaFlag)
+        {
+            string first, second, third, fourth, fifth;
+            third = "Уничтожив последний кусок пиццы Алиса, подумала, что было бы не плохо запить сьеденную еду.";
+            if (pizzaFlag == true)
+            {
+                first = "\tНе долго думая, Алиса схватила левый кусок пиццы и принялась его кушать.";
+                second = "При этом подумывая, как бы они реализовала свою новую фичу, хотя какую именно она почему-то не подумала.";
+                fourth = "Не смотря на обрывочные мысли о новой фиче и все сильнее одалевающей её жажде, Алиса не подала виду.";
+                fifth = "Вспомнив уроки хороших манер, она сказала Гусенице.";
+                return String.Format("{0} {1} {2} {3} {4}", first, second, third, fourth, fifth);
+            }
+            else
+            {
+                first = "\tНе долго думая, Алиса схватила правый кусок пиццы и принялась его кушать.";
+                second = "При этом подумывая, в какую бы игру она хотела поиграть сегоднешним вечером.";
+                fourth = "Вспомнив уроки хороших манер, она сказала Гусенице.";
+                return String.Format("{0} {1} {2} {3}", first, second, third, fourth);
+            } 
+        }
 
+        //Done
         public string GetOpeningWordsOfTheHatterScene()
-        { return "Hatter begin"; }
+        {
+            string first = "\tОтблагодарив Гусениццу, Алиса развернулась и увидела, что все это время за ними следил какой-то мужчина в шляпе.";
+            string second = "Причем эта шляпа была очень больших размеров и с странными рисунками, на ней были нариосанны разные кривые линии на квадратных полях.";
+            string third = "Из букв которые часто встречались, сложно было выделить конкретные слова, но почти все линии были чем-то подписанны...";
+            string fourth = "Из всех подписей Алиса смогла рассмотреть n^2, n*log(n), n, log(n), const и еще какое-то странное слово асимптКОТИКИ как ей показалось.";
+            string fifth = "Однако увидев, что около этого мужчины стоит коффемашина и какие-то симпотичные бутылки, жажда пересилила недоверие и Алиса подошла к мужчине...";
+            return String.Format("{0} {1} {2} {3} {4}", first, second, third, fourth, fifth); 
+        }
         public string GetFinalgWordsOfTheHatterScene()
         { return "Hatter final"; }
-
-        public string GetOpeningWordsOfTheCaterpillarScene()
-        { return "Caterpillar begin"; }
-        public string GetFinalgWordsOfTheCaterpillarScene()
-        { return "Caterpillar end"; }
-
-        public string GetOpeningWordsOfTheTweedleScene()
-        { return "Tweedle begin"; }
-        public string GetFinalgWordsOfTheTweedleScene()
-        { return "Tweedle end"; }
     }
 }

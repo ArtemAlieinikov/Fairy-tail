@@ -15,7 +15,11 @@ namespace Fairy_tail.Сlasses
 
         public string GetPizzaDiscussComments()
         {
-            return "Give speech about two pices of pizza or pice of mashroom";
+            string first = "Здраствуй Алиса, не нужно представляться, я знаю как тебя зовут и что ты есть.";
+            string second = "А так же я знаю, что ты не прочь подкрепиться, я могу с тобой поделиться, но при одном условии.";
+            string third = "Либо ты берешь ЛЕВЫЙ кусок пиццы и идешь пилить новую ФИЧУ, либо ты берешь ПРАВЫЙ кусок и садишся играть в XBOX360.";
+            string fourth = "Не надо лишних слов, просто выбирай свой кусок.";
+            return String.Format("{0}: {1} {2} {3} {4}", ToString(), first, second, third, fourth);
         }
     }
 }

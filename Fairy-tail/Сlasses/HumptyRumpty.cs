@@ -15,7 +15,8 @@ namespace Fairy_tail.Сlasses
 
         public string GetHRDiscussComments()
         {
-            return "Show reaction of HREgg Шалтай HR Болтаевич";
+            string first = "Ваше резюме пожалуйста, да, именно вот эту вот бумагу, которую вы держите в руках. Я его рассмотрю и вы сможете получить фидбек.";
+            return String.Format("{0}: {1}", ToString(), first);
         }
     }
 }

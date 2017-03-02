@@ -16,7 +16,7 @@ namespace Fairy_tail.Сlasses
 
         public string GetSharpDiscussComments()
         {
-            return "SharpFUN comment";
+            return String.Format("{0}: {1}", ToString(), "А у нас в квартире газ, LINQ, TPL, свойства, лямбды, замыкания и ещё куча ништяков, а у вас?");
         }
     }
 }

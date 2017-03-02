@@ -16,7 +16,7 @@ namespace Fairy_tail.Сlasses
 
         public string GetJavaDiscussComments()
         {
-            return "JavaFUN comment";
+            return String.Format("{0}: {1}", ToString(), "А у нас полная кроссплатформенность, а у вас?");
         }
     }
 }
