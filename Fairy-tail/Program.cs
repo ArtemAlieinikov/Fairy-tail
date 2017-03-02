@@ -11,7 +11,7 @@ namespace Fairy_tail
     {
         static void Main(string[] args)
         {
-
+            new Menu().Run();
         }
     }
 }

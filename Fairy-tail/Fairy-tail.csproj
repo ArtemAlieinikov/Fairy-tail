@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,6 +54,7 @@
     <Compile Include="Сlasses\Hatter.cs" />
     <Compile Include="Сlasses\HostWriter.cs" />
     <Compile Include="Сlasses\HumptyRumpty.cs" />
+    <Compile Include="Сlasses\Menu.cs" />
     <Compile Include="Сlasses\TweedleJava.cs" />
     <Compile Include="Сlasses\TweedleSharp.cs" />
     <Compile Include="Сlasses\Сharacter.cs" />
