@@ -8,9 +8,9 @@ namespace Fairy_tail.Сlasses
 {
     abstract class Сharacter
     {
-        private string name;
-        private int hungerLevel;
-        private double hitPoints;
+        protected string name;
+        protected int hungerLevel;
+        protected double hitPoints;
 
         public double HitPoints
         {
@@ -46,6 +46,11 @@ namespace Fairy_tail.Сlasses
             this.name = name;
             HungerLevel = hungerLevel;
             HitPoints = hitPoint;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("<-{0}->", name); 
         }
     }
 }
