@@ -24,6 +24,7 @@ namespace Fairy_tail.Сlasses
         {
             Console.WindowWidth = 92;
             Console.WindowHeight = 40;
+
             PrintMessage(hostWriter.GetStartSpeech());
             GetCommandByKeyBoard();
 
@@ -38,11 +39,16 @@ namespace Fairy_tail.Сlasses
 
             ShowHatterScene();
             GetCommandByKeyBoard();
+
+            PrintMessage(hostWriter.GetEndSpeech());
+            PrintMessage(hostWriter.GetResults(heroes["Alice"]));
+
+            GetCommandByKeyBoard();
         }
 
         private void CreateHeroes()
         {
-            heroes.Add("Alice", new Alice("Алиса", 10, 100));
+            heroes.Add("Alice", new Alice("Алиса", 5, 50));
             heroes.Add("JavaMan", new TweedleJava("Труляля", 10, 100));
             heroes.Add("SharpMan", new TweedleSharp("Траляля", 10, 100));
             heroes.Add("HREgg", new HumptyRumpty("Шалтай Болтай", 10, 100));
@@ -52,19 +58,36 @@ namespace Fairy_tail.Сlasses
 
         private void PrintMessage(string message)
         {
+            //В данном месте я сделал ДВА потока, что бы можно было вывести весь текст без задержек
+            //Отмените комментарии что бы попробывать этот вариант.
+
+            //Thread getChar = new Thread(new ThreadStart(GetCommandByKeyBoard));
+            //getChar.Start();
+            //int i = 0;
             foreach(char item in message)
             {
                 Console.Write(item);
-                //Thread.Sleep(10);
+                Thread.Sleep(1); // Регурируем скорость подачи текста.
+                //++i;
+                //if (command != null)
+                //{
+                //    command = null;
+                //    break;
+                //}
             }
+            //for (; i < message.Length; i++)
+            //{
+            //    Console.Write(message[i]);
+            //}
             Console.WriteLine();
         }
 
         private void GetCommandByKeyBoard()
         {
+            command = null;
             command = Console.ReadLine().ToLower();
         }
-        //Done
+
         private void ShowTwedleScene()
         {
             PrintMessage(hostWriter.GetOpeningWordsOfTheTweedleScene());
@@ -86,20 +109,26 @@ namespace Fairy_tail.Сlasses
             while(!("j" == command || "#" == command))
             {
                 Console.Write("\tВаш выбор : ");
+                heroes["Alice"].HitPoints -= 25;
                 GetCommandByKeyBoard();
             }
 
             if ("#" == command)
             {
                 hostWriter.ProgressGrowth(2);
+                heroes["Alice"].HitPoints += 25;
+
                 ITweedleSharpDiscussable aliceForSharp = heroes["Alice"] as ITweedleSharpDiscussable;
+
                 GetCommandByKeyBoard();
                 PrintMessage(aliceForSharp.GetSharpDiscussComments());
             }
             else 
             {
                 hostWriter.ProgressGrowth(1);
+
                 ITweedleJavaDiscussable aliceForJava = heroes["Alice"] as ITweedleJavaDiscussable;
+
                 GetCommandByKeyBoard();
                 PrintMessage(aliceForJava.GetJavaDiscussComments());
             }
@@ -107,7 +136,7 @@ namespace Fairy_tail.Сlasses
             GetCommandByKeyBoard();
             PrintMessage(hostWriter.GetFinalgWordsOfTheTweedleScene());
         }
-        //Done
+
         private void ShowHumptyRamptyScene()
         {
             PrintMessage(hostWriter.GetOpeningWordsOfTheHRScene());
@@ -136,17 +165,19 @@ namespace Fairy_tail.Сlasses
 
             if ("yes" == command)
             {
+                heroes["Alice"].HungerLevel -= 2;
                 hostWriter.ProgressGrowth(1);
                 GetCommandByKeyBoard();
                 PrintMessage(hostWriter.GetFinalgWordsOfTheHRScene(true));
             }
             else
             {
+                heroes["Alice"].HungerLevel += 2;
                 GetCommandByKeyBoard();
                 PrintMessage(hostWriter.GetFinalgWordsOfTheHRScene(false));
             }
         }
-        //Done
+
         private void ShowCaterpillarPizzaScene()
         {
             PrintMessage(hostWriter.GetOpeningWordsOfTheCaterpillarScene());
@@ -169,12 +200,16 @@ namespace Fairy_tail.Сlasses
             if ("left" == command)
             {
                 hostWriter.ProgressGrowth(2);
+                heroes["Alice"].HitPoints += 25;
+
                 GetCommandByKeyBoard();
                 PrintMessage(hostWriter.GetFinalgWordsOfTheCaterpillarScene(true));
             }
             else
             {
                 hostWriter.ProgressGrowth(1);
+                heroes["Alice"].HitPoints -= 25;
+
                 GetCommandByKeyBoard();
                 PrintMessage(hostWriter.GetFinalgWordsOfTheCaterpillarScene(false));
             }
@@ -183,12 +218,56 @@ namespace Fairy_tail.Сlasses
             PrintMessage(aliceWithCaterpillar.GetPizzaDiscussComments());
         }
 
-        public void ShowHatterScene()
+        private void ShowHatterScene()
         {
             PrintMessage(hostWriter.GetOpeningWordsOfTheHatterScene());
             GetCommandByKeyBoard();
 
             IHatterDiscussable hatterMan = heroes["Hatter"] as IHatterDiscussable;
-        }
+            IHatterDiscussable aliceWithHatter = heroes["Alice"] as IHatterDiscussable;
+
+            PrintMessage(hatterMan.GetHatterDiscussComments());
+
+            PrintMessage("\n\tБутылочка с надписью n^2, введите : N2 ");
+            PrintMessage("\tБутылочка с надписью n*log(n), введите : NlogN ");
+            PrintMessage("\tБутылочка с надписью n, введите : N ");
+            PrintMessage("\tБутылочка с надписью log(n), введите : logN ");
+            PrintMessage("\tБутылочка с надписью const, введите : const ");
+
+            while (!("n2" == command || "nlogn" == command || "n" == command || "logn" == command || "const" == command))
+            {
+                Console.Write("\tВаш выбор : ");
+                GetCommandByKeyBoard();
+            }
+
+            if ("n2" == command)
+            {
+                hostWriter.ProgressGrowth(0);
+            }
+            else if ("nlogn" == command)
+            {
+                hostWriter.ProgressGrowth(1);
+            }
+            else if ("n" == command)
+            {
+                hostWriter.ProgressGrowth(2);
+            }
+            else if ("logn" == command)
+            {
+                hostWriter.ProgressGrowth(3);
+            }
+            else if ("const" == command)
+            {
+                heroes["Alice"].HungerLevel += 3;
+                hostWriter.ProgressGrowth(5);
+            }
+
+            GetCommandByKeyBoard();
+            PrintMessage(aliceWithHatter.GetHatterDiscussComments());
+
+            GetCommandByKeyBoard();
+            PrintMessage(hostWriter.GetFinalgWordsOfTheHatterScene());
     }
+        
+}
 }

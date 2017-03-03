@@ -14,6 +14,10 @@ namespace Fairy_tail.Сlasses
 
         public double HitPoints
         {
+            get
+            {
+                return hitPoints;
+            }
             set
             {
                 if (value > 100 || value <= 0)
@@ -28,6 +32,10 @@ namespace Fairy_tail.Сlasses
         }
         public int HungerLevel
         {
+            get
+            {
+                return hungerLevel;
+            }
             set
             {
                 if (value > 10 || value <= 0)

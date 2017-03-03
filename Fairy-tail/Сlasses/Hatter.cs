@@ -15,7 +15,9 @@ namespace Fairy_tail.Сlasses
 
         public string GetHatterDiscussComments()
         {
-            return "Give speech about offering coffe or a little alcogol drink";
+            string first = "Привет Алиса, ты наверное устала? Хочешь чего-то выпить? У меня есть напитки разного состава, пожалуйста, бери любую понравившуюся бутылку.";
+            string second = "Определить где какой напиток, ты сможешь по надписях на этикетках.";
+            return String.Format("{0}: {1} {2}", ToString(), first, second);
         }
     }
 }
